@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect } from "react";
 import { useParams,Link } from "react-router-dom"
-function UserPage({getUser,user}){
+function UserPage({getUser,user,repo}){
     const {username}=useParams();
     const {
         name,
@@ -68,6 +68,14 @@ function UserPage({getUser,user}){
                 <div className="badge badge-light"> Public Repos : {public_repos}</div>
                 <div className="badge badge-dark"> Public Gists : {public_gists}</div>
             </div>
+
+            {repo.map((repo, i) => (
+                <div className="card" key={i}>
+                    <a href={repo.html_url} target='_blank' rel="noreferrer">
+                    <h1>{repo.name}</h1></a>
+                    <p>{repo.description}</p>
+                </div>
+            ))}
 
             
         </>

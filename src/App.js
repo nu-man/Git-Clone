@@ -14,7 +14,8 @@ import UserPage from "./components/UserPage.js";
 import { Routes, Route } from "react-router-dom";
 function App() {
   const [users, setUsers] = useState([]);
-  const[user,setUser]=useState([]);
+  const[user,setUser]=useState({});
+  const[repo,setRepo]=useState([]);
   const [loading, setloading] = useState(true);
   const [alert, setAlert] = useState(null);
 
@@ -31,6 +32,8 @@ function App() {
     };
     fetchData();
   }, []);
+
+  
 
   //Searchig a user
   const searchUsers = async (username) => {
@@ -57,7 +60,10 @@ function App() {
   const getUser=async (username)=>{
     try {
         const {data}=await axios.get(`https://api.github.com/users/${username}`)
+        const res=await axios.get(`https://api.github.com/users/${username}/repos?sort=desc&per_page=5`)
         setUser(data);
+        setRepo(res.data)
+
     } catch (error) {
         console.error(error)
     }
@@ -87,7 +93,7 @@ function App() {
         <Route path="/contact" element={<Contact />}>
         </Route>
         <Route path="/about" element={<About />}></Route>
-        <Route path="/user/:username" element={<UserPage getUser={getUser} user={user}/>}></Route>
+        <Route path="/user/:username" element={<UserPage getUser={getUser} user={user} repo={repo}/>}></Route>
       </Routes>
     </>
   );
