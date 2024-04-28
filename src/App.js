@@ -7,7 +7,6 @@ import Search from "./components/Search.js";
 import Loading from "./components/loading.js";
 import Alert from "./components/Alert.js";
 import Contact from "./components/Contact.js";
-import About from "./components/About.js";
 import UserPage from "./components/UserPage.js";
 
 //Routes
@@ -92,7 +91,7 @@ function App() {
         </Route>
         <Route path="/contact" element={<Contact />}>
         </Route>
-        <Route path="/about" element={<About />}></Route>
+     
         <Route path="/user/:username" element={<UserPage getUser={getUser} user={user} repo={repo}/>}></Route>
       </Routes>
     </>
