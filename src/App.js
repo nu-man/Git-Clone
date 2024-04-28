@@ -8,6 +8,7 @@ import Loading from "./components/loading.js";
 import Alert from "./components/Alert.js";
 import Contact from "./components/Contact.js";
 import UserPage from "./components/UserPage.js";
+import Footer from "./components/Footer.js";
 
 //Routes
 import { Routes, Route } from "react-router-dom";
@@ -94,6 +95,7 @@ function App() {
      
         <Route path="/user/:username" element={<UserPage getUser={getUser} user={user} repo={repo}/>}></Route>
       </Routes>
+      <Footer/>
     </>
   );
 }
