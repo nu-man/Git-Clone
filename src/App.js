@@ -35,7 +35,7 @@ function App() {
 
   
 
-  //Searchig a user
+  //Searching a user
   const searchUsers = async (username) => {
     try {
       const { data } = await axios.get(
@@ -44,10 +44,12 @@ function App() {
       setUsers(data.items);
     } catch (error) {}
   };
+
   //Clearing the users
   const clearUsers = () => {
     setUsers([]);
   };
+
   //Giving Alerts
   const showAlert = (alert) => {
     setAlert(alert);
@@ -63,12 +65,10 @@ function App() {
         const res=await axios.get(`https://api.github.com/users/${username}/repos?sort=desc&per_page=5`)
         setUser(data);
         setRepo(res.data)
-
-    } catch (error) {
+      } catch (error) {
         console.error(error)
-    }
-
-}
+      }
+  }
   return (
     <>
       <Navbar />
