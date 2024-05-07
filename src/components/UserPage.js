@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import { useEffect } from "react";
 import { useParams,Link } from "react-router-dom"
 function UserPage({getUser,user,repo}){
@@ -20,7 +20,7 @@ function UserPage({getUser,user,repo}){
     } = user;
         useEffect(()=>{
             getUser(username)
-    },[])
+    },[getUser, username])
     return (
         <>
             <Link to="/" className="btn btn-light">
