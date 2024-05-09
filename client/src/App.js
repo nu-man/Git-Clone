@@ -72,12 +72,15 @@ function App() {
   return (
     <>
       <Navbar />
+      <div>
+      <Alert alert={alert} />
+      </div>
       <Routes>
         <Route
           path="/" element={
             <>
               <div className="container">
-                <Alert alert={alert} />
+                
                 <Search
                   searchUsers={searchUsers}
                   clearUsers={clearUsers}
@@ -90,7 +93,7 @@ function App() {
           }
         >
         </Route>
-        <Route path="/contact" element={<Contact />}>
+        <Route path="/contact"   element={<Contact showAlert={showAlert}/> } >
         </Route>
      
         <Route path="/user/:username" element={<UserPage getUser={getUser} user={user} repo={repo}/>}></Route>

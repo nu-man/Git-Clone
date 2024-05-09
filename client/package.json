@@ -18,6 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "proxy": "http://localhost:5000",
   "homepage": "https://inuman.dev/apps/github-app",
   "eslintConfig": {
     "extends": [

@@ -1,6 +1,7 @@
+import axios from "axios";
 import { useState } from "react";
 
-function Contact() {
+function Contact({showAlert}) {
   const [formdata, setFormdata] = useState({
     email: "",
     fullname: "",
@@ -12,15 +13,26 @@ function Contact() {
     howLikely: "",
     comments: "",
   });
-  const Onchnagehandler = (e) => {
+  const Onchnagehandler =  (e) => {
     setFormdata({
         ...formdata,
         [e.target.name]: e.target.value
     })
   };
-  const onSubmitHandler=(e)=>{
+  const onSubmitHandler= async (e)=>{
     e.preventDefault();
-    console.log(formdata);
+    try {
+      const {data}= await axios.post("/contact",formdata)
+      showAlert({
+        type:`success`,
+        msg: data.success
+      })
+    } catch (error) {
+      showAlert({
+        type:`danger`,
+        msg: error.response.data.error
+      })
+    }
   }
   return (
     <>
