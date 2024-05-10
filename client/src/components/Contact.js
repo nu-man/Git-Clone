@@ -44,7 +44,8 @@ function Contact({showAlert}) {
           <label>Email</label>
           <input type="email" name="email" onChange={Onchnagehandler}></input>
           <label>Name</label>
-          <input type="text" name="fullname" onChange={Onchnagehandler}></input>
+          <input type="text" name="fullname" onChange={Onchnagehandler} placeholder="Enter your name here" required></input>
+          
           <fieldset>
             <legend>
               Is this your first visit to website? <br></br>

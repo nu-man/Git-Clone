@@ -1,5 +1,6 @@
 import express from "express";
 import { readFile, writeFile } from "fs/promises";
+import "./dbConnect.js"
 const app = express();
 const port = 5000;
 
